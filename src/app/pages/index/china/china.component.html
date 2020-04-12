@@ -1,0 +1,72 @@
+<div>
+  <h2>国内疫情（本系统数据为假数据）</h2>
+  <div style="background: #ffffff;padding:30px;">
+    <div nz-row [nzGutter]="20">
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">现有确诊</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #ff6a57">{{total?.nowDiagnosis}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #ff6a57">
+            昨日
+                        <ng-container *ngIf="dayAdd?.nowDiagnosis>=0">
+                          +
+                        </ng-container>
+            {{dayAdd?.nowDiagnosis}}
+          </span>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">现有疑似</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #ec9217;">{{total?.nowSuspected}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #ec9217;">
+            昨日
+            <ng-container *ngIf="dayAdd?.nowSuspected>=0">
+              +
+            </ng-container>
+            {{dayAdd?.nowSuspected}}
+          </span>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">现有重症</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #545499">{{total?.nowICU}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #545499">
+            昨日
+            <ng-container *ngIf="dayAdd?.nowICU>=0">
+              +
+            </ng-container>
+            {{dayAdd?.nowICU}}
+          </span>
+        </nz-card>
+      </div>
+    </div>
+
+  </div>
+  <div style="background: #ffffff;padding:30px;">
+    <div nz-row [nzGutter]="20">
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">累计确诊</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #e83132">{{total?.diagnosis}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #e83132">昨日+{{dayAdd?.diagnosis}}</span>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">累计治愈</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #10aeb5;">{{total?.cure}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #10aeb5;">昨日+{{dayAdd?.cure}}</span>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="4" [align]="'center'" nzOffset="3">
+        <nz-card nzBordered="false">
+          <span style="font-size: 18px">累计死亡</span><br>
+          <span style="font-size: 30px;font-weight: 700; color: #4d5054">{{total?.die}}</span><br>
+          <span style="font-size: 5px; font-weight: 700;color: #4d5054">昨日+{{dayAdd?.die}}</span>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div>

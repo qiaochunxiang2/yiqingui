@@ -1,0 +1,56 @@
+
+<nz-layout>
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="240px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <span>
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>疫情分析系统</h1>
+      </span>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background-color: #07141e">
+      <li nz-menu-item    (click)="changeUrl('/index/welcome')">
+        <i nz-icon nzType="solution"></i>
+        <span>首页</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/yiqinghistory')">
+        <i nz-icon nzType="form"></i>
+        <span>数据录入</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/chinayiqing')">
+        <i nz-icon nzType="sound" nzTheme="outline"></i>
+        <span>中国疫情</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/news')">
+        <i nz-icon nzType="eye" nzTheme="outline"></i>
+        <span>热点新闻</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/chinaform')">
+        <i nz-icon nzType="sound" nzTheme="outline"></i>
+        <span>疫情折线图</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>Footer</nz-footer>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,62 @@
+<app-entry-data [visible]="entryDataVisible" (result)="closeEntry()"></app-entry-data>
+<div style="margin-bottom: 16px;">
+  <h3>(本系统数据为假数据)</h3>
+  <div nz-row [nzGutter]="20">
+    <div nz-col nzSpan="4">
+      <button nz-button nzType="primary" (click)="openEntryData()">新增</button>
+    </div>
+    <div nz-col nzSpan="4">
+      <nz-select [(ngModel)]="queryData.cId" nzAllowClear nzPlaceHolder="请选择市" style="width: 200px">
+        <nz-option-group  *ngFor="let city of citys"  [nzLabel]="city?.name">
+          <nz-option *ngFor="let shi of city?.shi" [nzValue]="shi.id" [nzLabel]="shi.name"></nz-option>
+        </nz-option-group>
+      </nz-select>
+    </div>
+    <div nz-col nzSpan="4">
+      <nz-date-picker [nzFormat]="'yyyy/MM/dd'"></nz-date-picker>
+    </div>
+  </div>
+</div>
+<nz-table #basicTable [nzData]="listData" [nzLoading]="loading">
+  <thead>
+  <tr>
+    <th nzShowSort nzSortKey="id">ID</th>
+    <th [align]="'center'">城市</th>
+    <th [align]="'center'">新增确诊人数</th>
+    <th [align]="'center'">新增治愈人数</th>
+    <th [align]="'center'">新增死亡人数</th>
+    <th [align]="'center'">新增疑似人数</th>
+    <th [align]="'center'">减少疑似人数</th>
+    <th [align]="'center'">新增重症人数</th>
+    <th [align]="'center'">重症减少人数</th>
+    <th [align]="'center'">操作时间</th>
+  </tr>
+  </thead>
+  <tbody>
+<!--  把数据循环输出出来-->
+  <tr *ngFor="let data of basicTable.data;let i = index">
+    <td [align]="'center'">{{i + 1}}</td>
+    <td [align]="'center'">{{ data.cName }}</td>
+    <td [align]="'center'">
+      {{ data.addDiagnosis }}
+    </td>
+    <td [align]="'center'">{{ data.cure }}</td>
+    <td [align]="'center'">{{ data.die }}</td>
+    <td [align]="'center'">{{ data.addSuspected }}</td>
+    <td [align]="'center'">
+      {{data.reduceSuspected}}
+    </td >
+    <td [align]="'center'">
+      {{data.addICU}}
+    </td>
+    <td [align]="'center'">
+      {{data.reduceICU}}
+    </td>
+    <td>
+<!--      日期管道格式化-->
+      {{data.entryDate| date:'yyyy-MM-dd'}}
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+

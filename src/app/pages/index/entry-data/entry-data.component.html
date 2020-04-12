@@ -1,0 +1,102 @@
+<nz-drawer
+  [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+  [nzMaskClosable]="false"
+  [nzWidth]="720"
+  [nzVisible]="visible"
+  nzTitle="疫情上报，请仔细填写"
+  (nzOnClose)="close()"
+>
+  <form nz-form>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>省：</nz-form-label>
+          <nz-form-control>
+            <nz-select nzPlaceHolder="请选择省" [(ngModel)]="selectedSheng" (ngModelChange)="shengChange($event)"
+                       name="sheng">
+              <nz-option *ngFor="let sheng of city" [nzValue]="sheng.id" [nzLabel]="sheng.name"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>市：</nz-form-label>
+          <nz-form-control>
+            <nz-select nzPlaceHolder="请选择市" [(ngModel)]="selectedShi" (ngModelChange)="shiChange()" name="shi">
+              <nz-option *ngFor="let s of shi" [nzValue]="s" [nzLabel]="s.name"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>新增确诊</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.addDiagnosis" name="addDiagnosis">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>新增治愈</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.cure" name="cure">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>新增死亡</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.die" name="die">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>新增疑似</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.addSuspected" name="addSuspected">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>减少疑似</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.reduceSuspected" name="reduceSuspected">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>新增重症</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(ngModel)]="yiqingEntry.addICU" name="addICU">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-row nzGutter="8">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>减少重症</nz-form-label>
+            <nz-form-control>
+              <input nz-input [(ngModel)]="yiqingEntry.reduceICU" name="reduceICU">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="footer">
+    <button type="button" (click)="save()" class="ant-btn ant-btn-primary"><span>保存</span></button>
+    <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>取消</span></button>
+  </div>
+</nz-drawer>
