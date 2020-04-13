@@ -13,7 +13,10 @@
       </nz-select>
     </div>
     <div nz-col nzSpan="4">
-      <nz-date-picker [nzFormat]="'yyyy/MM/dd'"></nz-date-picker>
+      <nz-date-picker [nzFormat]="'yyyy-MM-dd'" [(ngModel)]="selectedTime" (ngModelChange)="dateChange()"></nz-date-picker>
+    </div>
+    <div>
+      <button nz-button nzType="primary" (click)="query()">查询</button>
     </div>
   </div>
 </div>
