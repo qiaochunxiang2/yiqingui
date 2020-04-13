@@ -12,6 +12,8 @@ import {NewsComponent} from './news/news.component';
 import { EchartsComponent } from './china/echarts/echarts.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { AdvisecardComponent } from './advisecard/advisecard.component';
+import { YiqingformComponent } from './yiqingform/yiqingform.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
       {path: 'welcome', component: WelcomeComponent},
       {path: 'chinayiqing', component: ChinaComponent},
       {path: 'news', component: NewsComponent},
-      {path: 'chinaform', component: EchartsComponent}
+      {path: 'chinaform', component: EchartsComponent},
+      {path: 'advisecard', component: AdvisecardComponent},
+      {path: 'yiqingform', component: YiqingformComponent}
     ]
   }
 ];
@@ -35,6 +39,8 @@ const routes: Routes = [
     ChinaComponent,
     NewsComponent,
     EchartsComponent,
+    AdvisecardComponent,
+    YiqingformComponent,
 
   ],
   imports: [
@@ -46,7 +52,7 @@ const routes: Routes = [
     NgxEchartsModule,
     NzDatePickerModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, ChinaComponent, EchartsComponent, YiqingformComponent, NewsComponent, AdvisecardComponent],
   providers: []
 })
 export class IndexModule {

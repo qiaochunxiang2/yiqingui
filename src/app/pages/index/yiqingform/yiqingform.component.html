@@ -1,0 +1,61 @@
+<div>
+  <div style="padding-bottom: 10px">
+    <h2>国内各地区疫情</h2>
+  </div>
+  <div>
+    <nz-table #expandTable [nzData]="yiqingFormData">
+      <thead>
+      <tr>
+        <th nzWidth="20%" [nzAlign]="'center'">疫情地区</th>
+        <th nzWidth="16%" [nzAlign]="'center'">新增</th>
+        <th nzWidth="16%" [nzAlign]="'center'">现有</th>
+        <th nzWidth="16%" [nzAlign]="'center'">累计</th>
+        <th nzWidth="16%" [nzAlign]="'center'">治愈</th>
+        <th nzWidth="16%" [nzAlign]="'center'">死亡</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let data of expandTable.data">
+        <ng-container *ngFor="let item of mapOfExpandedData[data.id]; let i = index">
+          <tr *ngIf="(item.parent && item.parent.expand) || !item.parent">
+            <ng-container *ngIf="i==0">
+              <td
+                [nzIndentSize]="20"
+                [nzShowExpand]="!!item.children"
+                [(nzExpand)]="item.expand"
+                (nzExpandChange)="collapse(mapOfExpandedData[data.id], item, $event)"
+                style="background: #10aeb5" nzWidth="20%" [nzAlign]="'center'">
+                {{ item.name }}
+              </td>
+            </ng-container>
+            <ng-container *ngIf="i!=0">
+              <td
+                [nzIndentSize]=" 20"
+                [nzShowExpand]="!!item.children"
+                [(nzExpand)]="item.expand"
+                (nzExpandChange)="collapse(mapOfExpandedData[data.id], item, $event)"
+                nzWidth="20%" [nzAlign]="'center'"
+              >
+                {{ item.name }}
+              </td>
+            </ng-container>
+            <td nzWidth="16%" [nzAlign]="'center'">{{ item.dayAdd }}</td>
+            <td nzWidth="16%" [nzAlign]="'center'">{{ item.diagnosis - item.cure - item.die }}</td>
+            <td nzWidth="16%" [nzAlign]="'center'">{{ item.diagnosis }}</td>
+            <td nzWidth="16%" [nzAlign]="'center'">{{ item.cure }}</td>
+            <td nzWidth="16%" [nzAlign]="'center'">
+              <ng-container *ngIf="item.die==0">
+                -
+              </ng-container>
+              <ng-container *ngIf="item.die!=0">
+                {{ item.die }}
+              </ng-container>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+

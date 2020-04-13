@@ -15,7 +15,9 @@ export class IndexComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.navigate(['/index/welcome']);
+  }
 
   onToggleCollapsed(evt) {
     this.collapsed = !this.collapsed;

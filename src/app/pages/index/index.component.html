@@ -1,4 +1,3 @@
-
 <nz-layout>
   <nz-sider class="menu-sidebar"
             nzCollapsible
@@ -13,25 +12,39 @@
       </span>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="background-color: #07141e">
-      <li nz-menu-item    (click)="changeUrl('/index/welcome')">
-        <i nz-icon nzType="solution"></i>
+      <li nz-menu-item (click)="changeUrl('/index/welcome')">
+        <i nz-icon nzType="bank"></i>
         <span>首页</span>
       </li>
-      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/yiqinghistory')">
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/yiqinghistory')">
         <i nz-icon nzType="form"></i>
         <span>数据录入</span>
       </li>
-      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/chinayiqing')">
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/chinayiqing')">
         <i nz-icon nzType="sound" nzTheme="outline"></i>
         <span>中国疫情</span>
       </li>
-      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/news')">
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/news')">
         <i nz-icon nzType="eye" nzTheme="outline"></i>
         <span>热点新闻</span>
       </li>
-      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"  (click)="changeUrl('/index/chinaform')">
-        <i nz-icon nzType="sound" nzTheme="outline"></i>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/chinaform')">
+        <i nz-icon nzType="line-chart" nzTheme="outline"></i>
         <span>疫情折线图</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/advisecard')">
+        <i nz-icon nzType="medicine-box" nzTheme="outline"></i>
+        <span>防疫卡片</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''"
+          (click)="changeUrl('/index/yiqingform')">
+        <i nz-icon nzType="cluster" nzTheme="outline"></i>
+        <span>省市疫情</span>
       </li>
     </ul>
   </nz-sider>

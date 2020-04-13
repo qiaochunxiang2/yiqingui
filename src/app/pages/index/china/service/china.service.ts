@@ -5,8 +5,8 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ChinaService {
-  public chinaUrl = 'http://localhost:8080/china/chinayiqing';
-  public chinaEchartsUrl = 'http://localhost:8080/china/chinaEcharts';
+  public chinaUrl = 'http://localhost:8080/yiqing/chinayiqing';
+  public chinaEchartsUrl = 'http://localhost:8080/yiqing/chinaEcharts';
   constructor(
     private http: HttpClient
   ) {

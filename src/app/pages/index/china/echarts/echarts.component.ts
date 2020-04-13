@@ -8,12 +8,12 @@ import {ChinaService} from '../service/china.service';
 })
 export class EchartsComponent implements OnInit {
   areaOptions: any;
-  date = [];
-  add = [];  // 新增确诊
-  cure = [];
-  die = [];
-  suspected = [];
-  ICU = [];
+  date = [];  //日期
+  add = [];  // 新增确诊人数
+  cure = []; // 治愈人数
+  die = [];  // 死亡人数
+  suspected = []; // 疑似人数
+  ICU = []; // 重症人数
 
   constructor(
     private chinaService: ChinaService,
